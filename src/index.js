@@ -9,7 +9,6 @@ const app = express();
 
 const prepareAndStartServer = async () => {
   // const userRepository = new UserRepository();
-
   // userRepository.create({
   //   email: "sanket@admin.com",
   //   password: "124345",

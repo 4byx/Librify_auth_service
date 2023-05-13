@@ -27,6 +27,8 @@ const create = async (req, res) => {
   }
 };
 
+const destroy = async (req, res) => {};
+
 module.exports = {
   create,
 };
