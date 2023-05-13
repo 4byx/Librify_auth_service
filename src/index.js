@@ -1,13 +1,14 @@
 const express = require("express");
-const {PORT} = require("./config/serverConfig")
+const { PORT } = require("./config/serverConfig");
 const app = express();
 
-const prepareAndStartServer = async () => {
-    
+// const db = require("./models/index");
 
-    app.listen(PORT , () => {
-        console.log("Server started at PORT " , PORT);
-    })
-}
+const prepareAndStartServer = async () => {
+  // db.sequelize.sync({ alter: true });
+  app.listen(PORT, () => {
+    console.log("Server started at PORT ", PORT);
+  });
+};
 
 prepareAndStartServer();
