@@ -9,4 +9,10 @@ router.post(
   UserController.create
 );
 
+router.post(
+  "/signIn",
+  reqAuthValidators.signInReqAuthValidator,
+  UserController.signIn
+);
+
 module.exports = router;
