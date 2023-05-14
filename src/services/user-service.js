@@ -59,10 +59,27 @@ class UserService {
     }
   }
 
+  async isAuthenticated(token) {
+    try {
+      const response = this.verifyToken(token);
+      if (!response) {
+        throw { error: "Invalid token" };
+      }
+      const user = await this.userRepository.getById(response.id);
+      if (!user) {
+        throw { error: "No such user found in database" };
+      }
+      return user.id;
+    } catch (error) {
+      console.log("something went wrong in auth process");
+      throw { error };
+    }
+  }
+
   // function usefull , create token , compare password
   createToken(user) {
     try {
-      const token = jwt.sign(user, JWT_KEY, { expiresIn: 2 });
+      const token = jwt.sign(user, JWT_KEY, { expiresIn: 40 });
       return token;
     } catch (error) {
       console.log("Error in creating the token");
